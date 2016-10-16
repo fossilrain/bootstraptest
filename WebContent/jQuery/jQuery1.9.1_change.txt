@@ -1,0 +1,2 @@
+1.手工将jquery-1.9.1.min.js中getPreventDefault改为defaultPrevented
+2.将jquery-1.9.1.min.js中第二行//@ sourceMappingURL=jquery.min.map改为//# sourceMappingURL=jquery.min.map
