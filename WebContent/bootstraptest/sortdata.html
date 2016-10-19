@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+   <head>
+   	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Bootstrap 模板</title>
+      <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <script src="../jQuery/jquery-1.9.1.min.js"></script>
+      <script src="../bootstrap/js/bootstrap.min.js"></script>
+      <script type="text/javascript">
+      	var datax=[
+      	         {
+      	           "processTypeCode": "01",
+      	           "processLi": [
+      	               {
+      	                   "title": "办公职场租赁用印申请流程",
+      	                   "text": "办公职场租赁用印申请流程",
+      	                   "href": "sealrecordmain.flowc?flowActionName=sealrecorddetailview&flag=add&provType=0101",
+      	                   "isshow": "1",
+      	                   "orderBy": "101"
+      	               },
+      	               {
+      	                   "title": "招聘合同用印申请流程 ",
+      	                   "text": "招聘合同用印申请流程 ",
+      	                   "href": "sealrecordmain.flowc?flowActionName=sealrecorddetailview&flag=add&provType=0111",
+      	                   "isshow": "1",
+      	                   "orderBy": "111"
+      	               },
+      	               {
+      	                   "title": "非合同类用印申请流程 ",
+      	                   "text": "非合同类用印申请流程 ",
+      	                   "href": "sealrecordmain.flowc?flowActionName=sealrecorddetailview&flag=add&provType=0110",
+      	                   "isshow": "1",
+      	                   "orderBy": "110"
+      	               },
+      	               {
+      	                   "title": "一般商务合同服务协议用印申请流程 ",
+      	                   "text": "一般商务合同服务协议用印申请流程 ",
+      	                   "href": "sealrecordmain.flowc?flowActionName=sealrecorddetailview&flag=add&provType=0109",
+      	                   "isshow": "1",
+      	                   "orderBy": "109"
+      	               },
+      	               {
+      	                   "title": "证照公章外借使用申请流程 ",
+      	                   "text": "证照公章外借使用申请流程 ",
+      	                   "href": "sealrecordmain.flowc?flowActionName=sealrecorddetailview&flag=add&provType=0108",
+      	                   "isshow": "1",
+      	                   "orderBy": "108"
+      	               },
+      	               {
+      	                   "title": "客服部客户信息或收益权变更审批流程 ",
+      	                   "text": "客服部客户信息或收益权变更审批流程 ",
+      	                   "href": "sealrecordmain.flowc?flowActionName=sealrecorddetailview&flag=add&provType=0107",
+      	                   "isshow": "1",
+      	                   "orderBy": "107"
+      	               },
+      	               {
+      	                   "title": "运营部用印申请流程 ",
+      	                   "text": "运营部用印申请流程 ",
+      	                   "href": "sealrecordmain.flowc?flowActionName=sealrecorddetailview&flag=add&provType=0105",
+      	                   "isshow": "1",
+      	                   "orderBy": "105"
+      	               },
+      	               {
+      	                   "title": "产品部对账用印申请流程 ",
+      	                   "text": "产品部对账用印申请流程 ",
+      	                   "href": "sealrecordmain.flowc?flowActionName=sealrecorddetailview&flag=add&provType=0106",
+      	                   "isshow": "1",
+      	                   "orderBy": "106"
+      	               },
+      	               {
+      	                   "title": "产品类用印申请流程 ",
+      	                   "text": "产品类用印申请流程 ",
+      	                   "href": "sealrecordmain.flowc?flowActionName=sealrecorddetailview&flag=add&provType=0104",
+      	                   "isshow": "1",
+      	                   "orderBy": "104"
+      	               },
+      	               {
+      	                   "title": "电子设备及软件系统采购用印申请流程 ",
+      	                   "text": "电子设备及软件系统采购用印申请流程 ",
+      	                   "href": "sealrecordmain.flowc?flowActionName=sealrecorddetailview&flag=add&provType=0103",
+      	                   "isshow": "1",
+      	                   "orderBy": "103"
+      	               },
+      	               {
+      	                   "title": "一般固定资产采购用印申请流程 ",
+      	                   "text": "一般固定资产采购用印申请流程 ",
+      	                   "href": "sealrecordmain.flowc?flowActionName=sealrecorddetailview&flag=add&provType=0102",
+      	                   "isshow": "1",
+      	                   "orderBy": "102"
+      	               }
+      	           ]
+      	       }
+      	   ];
+      	/* json数组排序 
+      	sortFunc：自己需要实现的排序函数，包含两个参数（即需要进行比较的两个参数arg0、arg1）
+      			返回：0:相等 1:arg0>arg1 -1:arg0<arg1*/
+      	function sortJsonArray(jsonArray,sortFunc){
+      		
+			alert(typeof jsonArray);    		
+      	}
+      	jQuery(function(){
+      		//sortJsonArray(datax);
+      		var afterSort=datax[0].processLi.sort(function(a,b){
+      			var a=parseInt(a.orderBy || 0);
+      			var b=parseInt(b.orderBy || 0);
+      			return a > b ? 1:(a == b ? 0 : -1);
+      		});
+      		//alert(JSON.stringify(afterSort));
+      		var x='';
+      		var y=0;
+      		alert(x||y);
+      	});
+      </script>
+   </head>
+   <body>
+      <h1>Hello, world!</h1>
+
+      
+   </body>
+</html>
