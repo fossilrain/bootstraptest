@@ -8,6 +8,67 @@
       <script src="../jQuery/jquery-1.9.1.min.js"></script>
       <script src="../bootstrap/js/bootstrap.min.js"></script>
       <script type="text/javascript">
+      	function StringBuffer () {
+    	  this._strings_ = new Array();
+    	}
+    	StringBuffer.prototype.append = function(str) {
+    	  this._strings_.push(str);
+    	};
+    	StringBuffer.prototype.toString = function() {
+    	  return this._strings_.join("");
+    	};
+      	//元数据 分页使用
+      	var pageData={
+      			"pageCallServ":{//通话服务记录
+      				"totalPage":10,
+      				"currentPage":1}
+      	};
+      	//生成分页字符串 pageDatax pageData键
+      	function generatePageStr(pageDatax){
+			jQuery("#"+pageDatax).empty();//清空之前的元素							 
+      		var pageMeterData=pageData[pageDatax];
+      		if(pageMeterData){
+      			var sb=new StringBuffer();
+      			var currentPage=pageMeterData.currentPage;
+      			var totalPage=pageMeterData.totalPage;
+      			var pStart=Math.max(1, currentPage-4);
+      			var pEnd=Math.min(totalPage, pStart+9);
+      			if(currentPage == 1){
+      				sb.append('<li class="disabled"><a href="javascript:void(0);">&laquo;</a></li>');
+      			}else{
+      				sb.append('<li><a href="javascript:void(0);" onclick=turnPage("'+pageDatax+'","previous")>&laquo;</a></li>');
+      			}
+      			for(var i=pStart;i <= pEnd;i++){
+      				if(currentPage == i){
+      					sb.append('<li class="disabled"><a href="javascript:void(0);">'+i+'</a></li>');
+      				}else{
+      					sb.append('<li><a href="javascript:void(0);" onclick=turnPage("'+pageDatax+'",'+i+')>'+i+'</a></li>');	
+      				}
+      			}
+      			if(currentPage == totalPage){
+      				sb.append('<li class="disabled"><a href="javascript:void(0);">&raquo;</a></li>');
+      			}else{
+      				sb.append('<li><a href="javascript:void(0);" onclick=turnPage("'+pageDatax+'","next")>&raquo;</a></li>');
+      			}
+      			jQuery("#"+pageDatax).append(sb.toString());
+      		}
+      	}
+      	//翻页
+      	function turnPage(pageDatax,pageCode){
+      		var pageMeterData=pageData[pageDatax];
+      		if(pageMeterData){
+      			var currentPage=pageMeterData.currentPage;
+      			var totalPage=pageMeterData.totalPage;
+      			if(pageCode == "previous"){
+      				pageMeterData.currentPage = currentPage-1;
+      			}else if(pageCode == "next"){
+      				pageMeterData.currentPage = currentPage+1;
+      			}else{
+      				pageMeterData.currentPage = pageCode;
+      			}
+      			generatePageStr(pageDatax);
+      		}
+      	}
       	//签入签出切换
       	function switchInOut(){
       		jQuery("#x_btn_sign").on("click",function(){
@@ -26,6 +87,7 @@
       	//初始化函数
       	function init(){
       		switchInOut();
+      		turnPage("pageCallServ",1);//实例化通话服务记录的分页
       	}
       	
       	jQuery(function(){
@@ -133,17 +195,21 @@
 										</div>
     								</div>
     								<div class="col-lg-3">
-    									<form class="form" role="form">
-    										<div class="row">
-    											<div class="col-lg-12">
-	    											<!-- <div class="form-group pull-right">
+    									<form role="form">
+											<!-- <div class="form-group pull-right">
 													    <label class="sr-only" for="callType">通话类型</label>
 													    <input type="text" class="form-control input-sm" id="callType" placeholder="搜索 通话类型"/>
 													</div> -->
-													<input type="text" class="form-control input-sm" id="callType" placeholder="搜索 通话类型"/>
-    											</div>
-    										</div>
-		    							</form>
+											<div class="input-group">
+												<input type="text" class="form-control input-sm"
+													id="callType" placeholder="搜索 通话类型" />
+												<span class="input-group-btn">
+													<button type="button" class="btn btn-default btn-sm">
+														<span class="glyphicon glyphicon-search"></span>
+													</button>
+												</span>
+											</div>
+										</form>
     								</div>
     							</div>
     						</div>
@@ -245,6 +311,18 @@
 								    <li><a href="#">4</a></li>
 								    <li><a href="#">5</a></li>
 								    <li><a href="#">&raquo;</a></li>
+								    <li>
+								    	<form class="form-inline" role="form">
+											<div class="input-group">
+												<span class="input-group-addon input-sm">转到</span>
+												<input type="text" class="form-control input-sm"
+													id="callType" placeholder="页码" /> 
+												<span class="input-group-btn">
+							                        <button class="btn btn-default btn-sm" type="button">Go!</button>
+							                    </span>
+											</div>
+										</form>
+								    </li>
 								</ul>
 							</div>
 						</div>
@@ -308,14 +386,14 @@
 										</tr>
 									</tbody>
 								</table>
-								<ul class="pagination pagination-lg pull-right">
-									<li><a href="#">&laquo;</a></li>
+								<ul id="pageCallServ" class="pagination pagination-lg pull-right">
+									<!-- <li><a href="#">&laquo;</a></li>
 									<li><a href="#">1</a></li>
-									<li><a href="#">2</a></li>
+									<li class="active disabled"><a href="#">2</a></li>
 									<li><a href="#">3</a></li>
 									<li><a href="#">4</a></li>
 									<li><a href="#">5</a></li>
-									<li><a href="#">&raquo;</a></li>
+									<li><a href="#">&raquo;</a></li> -->
 								</ul>
 							</div>
 						</div>
