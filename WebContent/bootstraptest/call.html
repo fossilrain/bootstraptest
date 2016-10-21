@@ -86,19 +86,249 @@
 			    		<span class="glyphicon glyphicon-wrench"></span>
 			    		管理
 					</button>
-					</div>
 				</div>
 			</div>
 		</div>
    		<div class="row">
    			<div class="col-lg-12">
-   			
+   				<ul id="myTab1" class="nav nav-tabs">
+   					<li class="active">
+				        <a href="#homepage" data-toggle="tab">主页</a>
+				    </li>
+				    <li><a href="#taskArea" data-toggle="tab">任务区</a></li>
+				    <li><a href="#callRecord" data-toggle="tab">通话记录</a></li>
+   				</ul>
+   				<div id="myTabContent1" class="tab-content">
+   					<div class="tab-pane fade in active" id="homepage">
+        				<p>主页内容。</p>
+    				</div>
+    				<div class="tab-pane fade" id="taskArea">
+        				<p>任务区内容。</p>
+        				<p>...</p>
+    				</div>
+    				<div class="tab-pane fade" id="callRecord">
+    					<div class="row"><!-- 表单 搜索 -->
+    						<div class="col-lg-12">
+    							<div class="row">
+    								<div class="col-lg-5">
+    								
+    								</div>
+    								<div class="col-lg-4">
+    									<div class="btn-group btn-group-sm pull-right">
+    										<div class="btn-group btn-group-sm">
+												<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-list-alt"></span>    
+													       明细
+													<span class="caret"></span>
+												</button>
+												<ul class="dropdown-menu">
+											        <li><a href="#">下拉链接 1</a></li>
+											        <li><a href="#">下拉链接 2</a></li>
+											    </ul>
+											</div>
+	    									<button type="button" class="btn btn-default">
+									    		<span class="glyphicon glyphicon-refresh"></span>
+									    		刷新
+											</button>
+										</div>
+    								</div>
+    								<div class="col-lg-3">
+    									<form class="form" role="form">
+    										<div class="row">
+    											<div class="col-lg-12">
+	    											<!-- <div class="form-group pull-right">
+													    <label class="sr-only" for="callType">通话类型</label>
+													    <input type="text" class="form-control input-sm" id="callType" placeholder="搜索 通话类型"/>
+													</div> -->
+													<input type="text" class="form-control input-sm" id="callType" placeholder="搜索 通话类型"/>
+    											</div>
+    										</div>
+		    							</form>
+    								</div>
+    							</div>
+    						</div>
+    					</div>
+    					<div class="row"><!-- 工具条 按钮 -->
+    						<div class="col-lg-12">
+    							<button type="button" class="btn btn-default btn-sm">
+						    		<span class="glyphicon glyphicon-send"></span>
+						    		短信发送
+								</button>
+    						</div>
+    					</div>
+    					<div class="row">
+    						<div class="col-lg-12">
+		        				<table class="table table-condensed table-hover table-striped">
+								  <!-- <caption>精简表格布局</caption> -->
+								  <thead>
+								    <tr>
+								      <th>通话方向</th>
+								      <th>通话状态</th>
+								      <th>客户性质</th>
+								      <th>客户ID</th>
+								      <th>客户</th>
+								      <th>主叫号码</th>
+								      <th>被叫号码</th>
+								      <th>归属地区</th>
+								      <th>IVR入口节点</th>
+								      <th>回电号码</th>
+								      <th>电话回拨</th>
+								      <th>开始时间</th>
+								      <th>结束时间</th>
+								      <th>通话流水号</th>
+								      <th>服务记录</th>
+								      <th>客户评价</th>
+								     </tr>
+								  </thead>
+								  <tbody>
+								    <tr>
+								      <td>呼出</td>
+								      <td>已结束</td>
+								      <td>公司客户</td>
+								      <td></td>
+								      <td></td>
+								      <td>500****5001</td>
+								      <td>133****0663</td>
+								      <td>陕西 西安</td>
+								      <td></td>
+								      <td>0133****0663</td>
+								      <td></td>
+								      <td>2016-10-17 14:55:15</td>
+								      <td>2016-10-17 14:55:50</td>
+								      <td>156962</td>
+								      <td>未填写</td>
+								      <td></td>
+								     </tr>
+								     <tr>
+								      <td>呼入</td>
+								      <td>已结束</td>
+								      <td>公司客户</td>
+								      <td></td>
+								      <td></td>
+								      <td>255****1614</td>
+								      <td>591****7900</td>
+								      <td></td>
+								      <td>投诉建议</td>
+								      <td>0256****614</td>
+								      <td>回拨电话</td>
+								      <td>2016-10-17 10:28:52</td>
+								      <td>2016-10-17 10:29:53</td>
+								      <td>156901</td>
+								      <td>已填写</td>
+								      <td></td>
+								     </tr>
+								     <tr>
+								      <td>呼入</td>
+								      <td>转ACD</td>
+								      <td>公司客户</td>
+								      <td></td>
+								      <td></td>
+								      <td>859****2939</td>
+								      <td>591****7900</td>
+								      <td></td>
+								      <td>VIP服务</td>
+								      <td>0256****614</td>
+								      <td>回拨电话</td>
+								      <td>2016-10-17 09:35:04</td>
+								      <td>2016-10-17 09:35:07</td>
+								      <td>156857</td>
+								      <td>未填写</td>
+								      <td></td>
+								     </tr>
+								  </tbody>
+								</table>
+								<ul class="pagination pagination-lg pull-right">
+									<li><a href="#">&laquo;</a></li>
+								    <li><a href="#">1</a></li>
+								    <li><a href="#">2</a></li>
+								    <li><a href="#">3</a></li>
+								    <li><a href="#">4</a></li>
+								    <li><a href="#">5</a></li>
+								    <li><a href="#">&raquo;</a></li>
+								</ul>
+							</div>
+						</div>
+    				</div>
+   				</div>
    			</div>
    		</div>
    		<div class="row">
    			<div class="col-lg-12">
-   			
-   			</div>
-   		</div>
+   				<ul id="myTab2" class="nav nav-tabs">
+   					<li class="active">
+				        <a href="#callServ" data-toggle="tab">
+				            	通话服务记录
+				        </a>
+				    </li>
+				    <li><a href="#callInServ" data-toggle="tab">来电服务记录</a></li>
+				    <li><a href="#seatsLog" data-toggle="tab">坐席操作日志</a></li>
+   				</ul>
+   				<div id="myTabContent2" class="tab-content">
+					<div class="tab-pane fade in active" id="callServ">
+    					<div class="row"><!-- 工具条 按钮 -->
+    						<div class="col-lg-12">
+    							<button type="button" class="btn btn-default btn-sm">
+						    		<span class="glyphicon glyphicon-plus"></span>
+						    		填写服务记录
+								</button>
+								<button type="button" class="btn btn-default btn-sm">
+						    		<span class="glyphicon glyphicon-edit"></span>
+						    		修改服务记录
+								</button>
+    						</div>
+    					</div>
+    					<div class="row">
+    						<div class="col-lg-12">
+								<table class="table table-condensed table-hover table-striped">
+									<!-- <caption>精简表格布局</caption> -->
+									<thead>
+										<tr>
+											<th>客户姓名</th>
+											<th>性别</th>
+											<th>所属公司</th>
+											<th>服务类别</th>
+											<th>详细内容</th>
+											<th>发起类型</th>
+											<th>服务人员</th>
+											<th>发生时间</th>
+											<th>通话记录</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>女士</td>
+											<td>女</td>
+											<td></td>
+											<td>洽谈合作</td>
+											<td>新闻软文广告</td>
+											<td>被动</td>
+											<td>DT1100058 郭鸿坤 客户服务部</td>
+											<td>2016-10-17 10:27:56</td>
+											<td>156901</td>
+										</tr>
+									</tbody>
+								</table>
+								<ul class="pagination pagination-lg pull-right">
+									<li><a href="#">&laquo;</a></li>
+									<li><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+									<li><a href="#">&raquo;</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="callInServ">
+						<p>来电服务记录内容。</p>
+					</div>
+					<div class="tab-pane fade" id="seatsLog">
+						<p>坐席操作日志内容。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
    </body>
 </html>
