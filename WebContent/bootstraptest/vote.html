@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+   <head>
+   	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>VOTE</title>
+      <script src="../jQuery/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+	window.onerror=handleErr;
+	function handleErr(msg, url, l,col) {
+		for(var i=0,n=arguments.length;i<n;i++){
+			alert(arguments[i]);
+		}
+		//alert(msg+"..."+url+"..."+l+"..."+col);
+		return false;
+	} 
+	
+	jQuery(function() {
+		var con = document.querySelector("body");
+	    console.olog = console.log;
+	    console.log = function() {
+	        //do what u want do;
+	        con.innerHTML += "<p>"+ [].join.call(arguments, '') + "</p>";
+	        this.olog.apply(this, arguments);
+	    }
+	    
+	    console.log("Hello world!");
+	    console.log("http://","segmentfault.com");
+		jQuery.ajax({
+			url: "http://wap.zzwb.cn/ajax/index.aspx?method=set.voterecord.insert&voteid=13&itemid=202&isAppVote=1",
+			type:"post",
+			dataType:"jsonp",
+			//data:{"count_ok": 0,"count_fail":0},
+			async:false,
+			success:function(data){
+				
+			},
+			error:function(XMLHttpRequest, textStatus, errorThrown){
+				//alert(JSON.stringify(XMLHttpRequest)+"..."+textStatus+"..."+errorThrown);
+			}
+		});
+        //jQuery("#xxx").attr("src","http://wap.zzwb.cn/ajax/index.aspx?method=set.voterecord.insert&voteid=13&itemid=202&isAppVote=1");
+	});
+</script>
+</head>
+   <body>
+   	<!-- <img id="xxx" src="" onerror=""/> -->
+   	
+   	<div id="vote_title"></div>
+   	<div id="vote_record"></div>
+   </body>
+</html>

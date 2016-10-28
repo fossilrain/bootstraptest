@@ -20,7 +20,7 @@
       	//元数据 分页使用
       	var pageData={
       			"pageCallServ":{//通话服务记录
-      				"totalPage":10,
+      				"totalPage":7,
       				"currentPage":1,
       				"totalRows":100},
 				"pageCallRec":{//通话服务记录
@@ -39,6 +39,12 @@
       			var totalRows=pageMeterData.totalRows;
       			var pStart=Math.max(1, currentPage-4);
       			var pEnd=Math.min(totalPage, pStart+9);
+      			if(totalPage < 11){
+      				pStart=1;pEnd=totalPage;
+      			}else if((pEnd - pStart) < 9){
+      				midpStart =Math.min(pStart -( 5 -( totalPage - currentPage)),pStart);
+      				pStart=midpStart > 0 ?midpStart:pStart;
+      			}
       			if(currentPage == 1){
       				sb.append('<li class="disabled"><a href="javascript:void(0);">&laquo;</a></li>');
       			}else{
@@ -139,7 +145,7 @@
    	<div class="container">
    		<div class="row">
    			<div class="col-lg-12">
-   				<div class="btn-group btn-group-sm">
+   				<div class="btn-group btn-group-lg">
 					<button id="x_btn_sign" type="button" class="btn btn-default">
 			    		<span class="glyphicon glyphicon-log-out"></span>
 			    		<font>签出</font>
@@ -385,7 +391,7 @@
 					<div class="tab-pane fade in active" id="callServ">
     					<div class="row"><!-- 工具条 按钮 -->
     						<div class="col-lg-12">
-    							<button type="button" class="btn btn-default btn-sm">
+    							<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal1">
 						    		<span class="glyphicon glyphicon-plus"></span>
 						    		填写服务记录
 								</button>
@@ -448,6 +454,22 @@
 					</div>
 				</div>
 			</div>
+		</div>
+		<!-- 弹出框部分代码 -->
+		<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                <h4 class="modal-title" id="myModalLabel">填写服务记录</h4>
+		            </div>
+		            <div class="modal-body">记录表单</div>
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		                <button type="button" class="btn btn-primary">提交更改</button>
+		            </div>
+		        </div><!-- /.modal-content -->
+		    </div><!-- /.modal -->
 		</div>
 	</div>
    </body>
