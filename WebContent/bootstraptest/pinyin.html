@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+   <head>
+   	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>汉字转拼音</title>
+      <script src="../jQuery/jquery-1.9.1.min.js"></script>
+      <script src="../pinyin/zmj.js"></script>
+      <script type="text/javascript">
+      	function trans(){
+    		var cc='中文';
+    		var str='',str2;
+    		var s;
+    		for(var i=0;i<cc.length;i++){
+    		//alert(cc.charAt(i)+" = "+cc.charCodeAt(i));
+    			if(pydic.indexOf(cc.charAt(i))!=-1&&cc.charCodeAt(i)>200){
+    				s=1;
+    				while(pydic.charAt(pydic.indexOf(cc.charAt(i))+s)!=","){
+    					str+=pydic.charAt(pydic.indexOf(cc.charAt(i))+s);
+    					s++;
+    				}
+
+    				str+=" ";
+    			}
+    			else{
+    				str+=cc.charAt(i);
+    			}
+    		}
+    		return str;
+
+    	}
+      	jQuery(function(){
+      		alert(trans());
+      	});
+      </script>
+   </head>
+   <body>
+      <h1>Hello, world!</h1>
+
+      
+   </body>
+</html>
