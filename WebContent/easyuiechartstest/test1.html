@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Basic Layout - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../EasyUI/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../EasyUI/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../EasyUI/demo/demo.css">
+	<script type="text/javascript" src="../EasyUI/jquery.min.js"></script>
+	<script type="text/javascript" src="../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+	<div style="margin:20px 0;"></div>
+	<div class="easyui-layout" style="width:100%;height:700px;">
+		<div data-options="region:'north'" style="height:50px">
+		<h2 align="center">产品净值走势图</h2>
+		</div>
+		<div data-options="region:'south',title:'净值数据',iconCls:'icon-large-smartart',split:true,collapsible:true,collapsed:true" style="height:350px;">
+			<table class="easyui-datagrid"
+					data-options="url:'datagrid_data1.json',method:'get',border:false,singleSelect:true,fit:true,fitColumns:true"
+					pagination="true"
+            rownumbers="true" fitColumns="true" singleSelect="true">
+				<thead>
+					<tr>
+						<th data-options="field:'itemid'" width="80">Item ID</th>
+						<th data-options="field:'productid'" width="100">Product ID</th>
+						<th data-options="field:'listprice',align:'right'" width="80">List Price</th>
+						<th data-options="field:'unitcost',align:'right'" width="80">Unit Cost</th>
+						<th data-options="field:'attr1'" width="150">Attribute</th>
+						<th data-options="field:'status',align:'center'" width="60">Status</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<!-- <div data-options="region:'east',split:true" title="East" style="width:100px;"></div>
+		<div data-options="region:'west',split:true" title="West" style="width:100px;"></div> -->
+		<div data-options="region:'center',title:'净值图表',iconCls:'icon-large-chart'" style="height:500px;">
+			
+		</div>
+	</div>
+
+</body>
+</html>
